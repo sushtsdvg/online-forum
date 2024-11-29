@@ -1,9 +1,10 @@
+import { servicePropsType } from "@/types/ServiceType";
 import Image from "next/image";
 
-const Service = () => {
+const Service = ({ src, alt, width, height }: servicePropsType) => {
   return (
-    <div className="flex pb-8">
-      <Image src="/images/service.png" alt="service" width={616} height={64} />
+    <div className="flex pb-10">
+      <Image src={src} alt={alt} width={width} height={height} />
     </div>
   );
 };

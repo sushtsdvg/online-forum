@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      lineHeight: {
+        "extra-loose": "5.25rem",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
