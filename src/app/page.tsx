@@ -1,9 +1,6 @@
-import Images from "@/components/Images";
-import Service from "@/components/Service";
-import Title from "@/components/Title";
-import { imagePropsType } from "@/types/ImageType";
-import { servicePropsType } from "@/types/ServiceType";
-import { TitleType } from "@/types/TitleType";
+import Images, { imagePropsType } from "@/components/Images";
+import Service, { servicePropsType } from "@/components/Service";
+import Title, { TitleType } from "@/components/Title";
 
 const getTitleData = (): TitleType => {
   return {

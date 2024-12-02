@@ -1,5 +1,10 @@
-import { imagePropsType } from "@/types/ImageType";
 import Image from "next/image";
+export type imagePropsType = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 
 const Images = ({ src, alt, width, height }: imagePropsType) => {
   return (

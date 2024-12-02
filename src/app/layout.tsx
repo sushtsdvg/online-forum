@@ -1,13 +1,25 @@
-import Header from "@/components/Header";
-import { HeaderProps } from "@/types/HeaderType";
+import Header, { headerPropsType } from "@/components/Header";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-const getHeaderData = (): HeaderProps => {
-  return {
-    heading: ["Gath", "Session", "."],
-    menuItems: ["Home", "Features", "Blog", "Contact", "About Us"],
-  };
+const getHeaderData = (): headerPropsType[] => {
+  return [
+    {
+      heading: {
+        part1: "Gath",
+        part2: "Session",
+        part3: ".",
+      },
+      menuItems: {
+        item1: "Home",
+        item2: "Features",
+        item3: "Blog",
+        item4: "Contact",
+        item5: "About Us",
+        item6: "Login"
+      },
+    },
+  ];
 };
 
 const geistSans = localFont({
@@ -37,7 +49,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header heading={headerData.heading} menuItems={headerData.menuItems} />
+        {headerData.map((header) => {
+          return (
+            <Header
+              key={header.heading.part1}
+              heading={header.heading}
+              menuItems={header.menuItems}
+            />
+          );
+        })}
+
         {children}
       </body>
     </html>

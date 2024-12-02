@@ -1,5 +1,13 @@
-import { TitleType } from "@/types/TitleType";
 import Image from "next/image";
+export interface ButtonType {
+  buttonText: string;
+}
+export type TitleType = {
+  heading: string;
+  subheading: string;
+  button: ButtonType[];
+};
+
 const Title = ({ heading, subheading, button }: TitleType) => {
   return (
     <div className="flex flex-col pt-6 gap-6">
