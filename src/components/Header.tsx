@@ -33,16 +33,16 @@ const Header = ({ heading, menuItems }: headerPropsType) => {
             >
               {menuItems.item1}
             </Link>
-            <Link href="#" className="text-sm text-[#ABABAB]">
+            <Link href="/features" className="text-sm text-[#ABABAB]">
               {menuItems.item2}
             </Link>
-            <Link href="#" className="text-sm text-[#ABABAB]">
+            <Link href="/blog" className="text-sm text-[#ABABAB]">
               {menuItems.item3}
             </Link>
-            <Link href="#" className="text-sm text-[#ABABAB]">
+            <Link href="/contact-us" className="text-sm text-[#ABABAB]">
               {menuItems.item4}
             </Link>
-            <Link href="#" className="text-sm text-[#ABABAB]">
+            <Link href="/about-us" className="text-sm text-[#ABABAB]">
               {menuItems.item5}
             </Link>
             <Link href="/login" className="text-sm text-[#ABABAB]">

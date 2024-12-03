@@ -16,7 +16,7 @@ const getHeaderData = (): headerPropsType[] => {
         item3: "Blog",
         item4: "Contact",
         item5: "About Us",
-        item6: "Login"
+        item6: "Login",
       },
     },
   ];
