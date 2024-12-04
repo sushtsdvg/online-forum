@@ -1,5 +1,5 @@
 const contactUs = () => {
-  return <h1 className="uppercase">contactUs</h1>;
+  return <h1 className="uppercase">contact Us</h1>;
 };
 
 export default contactUs;

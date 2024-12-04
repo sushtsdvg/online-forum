@@ -1,4 +1,3 @@
-"use client";
 import FormWrapper, {
   FormType,
   IlookUpValidations,
@@ -40,7 +39,10 @@ const getFormData = (): FormType[] => {
   ];
 };
 const lookUpValidations: IlookUpValidations = {
-  email: yup.string().email().required("Email is required"),
+  email: yup
+    .string()
+    .email("Enter a valid Email")
+    .required("Email is required"),
   password: yup.string().required("Password is required").min(6),
 };
 const page = () => {
@@ -119,12 +121,7 @@ const page = () => {
             </div>
             <div className="inline-flex flex-row justify-center gap-2 m-2">
               <div className="inline-flex gap-2 ">
-                <input
-                  type="checkbox"
-                  name="Remember Me"
-                  id="checkbox"
-                  required
-                />
+                <input type="checkbox" name="Remember Me" id="checkbox" />
                 <label htmlFor="remember Me">Remember Me</label>
               </div>
               <div className="text-blue-600">

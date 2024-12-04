@@ -1,5 +1,4 @@
 "use client";
-
 import { Formik, FormikErrors, useFormikContext } from "formik";
 import Image from "next/image";
 import { ReactNode } from "react";
@@ -82,7 +81,6 @@ export function Login({ image, input }: FormType) {
       <p className="text-red-600 font-normal">
         {JSON.stringify(error?.[input.name])}
       </p>
-      {/* <p>{JSON.stringify(formik.errors)}</p> */}
     </div>
   );
 }

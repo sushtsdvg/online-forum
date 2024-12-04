@@ -1,53 +1,79 @@
 import Image from "next/image";
 import Link from "next/link";
-export type headerPropsType = {
-  heading: {
-    part1: string;
-    part2: string;
-    part3: string;
-  };
-  menuItems: {
-    item1: string;
-    item2: string;
-    item3: string;
-    item4: string;
-    item5: string;
-    item6: string;
-  };
-};
-
-const Header = ({ heading, menuItems }: headerPropsType) => {
+export interface headerPropsType {
+  heading: [
+    {
+      part: string;
+    },
+    {
+      part: string;
+    },
+    {
+      part: string;
+    }
+  ];
+  navLinks: [
+    {
+      title: string;
+      path: string;
+    },
+    {
+      title: string;
+      path: string;
+    },
+    {
+      title: string;
+      path: string;
+    },
+    {
+      title: string;
+      path: string;
+    },
+    {
+      title: string;
+      path: string;
+    },
+    {
+      title: string;
+      path: string;
+    }
+  ];
+}
+const Header = ({ heading, navLinks }: headerPropsType) => {
   return (
     <div className="bg-[#2b2d38] w-max-[1920px] py-4 px-16">
       <div className="flex justify-between">
         <div className="flex text-4xl font-bold leading-[45.25px]">
-          <h1 className="text-[#db2a6b]">{heading.part1}</h1>
-          <h1 className="text-[#ffffff]">{heading.part2}</h1>
-          <h1 className="text-[#db2a6b]">{heading.part3}</h1>
+          {heading.map((headingPart) => (
+            <h1
+              className={
+                headingPart.part === heading[1].part
+                  ? "text-white"
+                  : "text-[#db2a6b]"
+              }
+              key={headingPart.part}
+            >
+              {headingPart.part}
+            </h1>
+          ))}
         </div>
         <div className="justify-items-center pt-2">
-          <ul className="flex list-none gap-8 font-poppins">
-            <Link
-              href="#"
-              className="text-sm text-[#FFFFFF] underline underline-offset-8 decoration-[#DB2A6B] decoration-2"
-            >
-              {menuItems.item1}
-            </Link>
-            <Link href="/features" className="text-sm text-[#ABABAB]">
-              {menuItems.item2}
-            </Link>
-            <Link href="/blog" className="text-sm text-[#ABABAB]">
-              {menuItems.item3}
-            </Link>
-            <Link href="/contact-us" className="text-sm text-[#ABABAB]">
-              {menuItems.item4}
-            </Link>
-            <Link href="/about-us" className="text-sm text-[#ABABAB]">
-              {menuItems.item5}
-            </Link>
-            <Link href="/login" className="text-sm text-[#ABABAB]">
-              {menuItems.item6}
-            </Link>
+          <ul className="flex list-none gap-8 font-poppins pb-2">
+            {navLinks.map((link) => (
+              <li key={link.title} className="text-sm text-[#ABABAB]">
+                <Link
+                  href={link.path}
+                  passHref
+                  className={
+                    link.path === navLinks[0].path
+                      ? "underline underline-offset-1 decoration-2 decoration-[#DB2A6B]"
+                      : ""
+                  }
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
             <button>
               <Image
                 src={"/images/Menu.svg"}
@@ -64,3 +90,6 @@ const Header = ({ heading, menuItems }: headerPropsType) => {
 };
 
 export default Header;
+// Use NavLink
+// Use Map function
+// Use props

@@ -1,37 +1,39 @@
 import Header, { headerPropsType } from "@/components/Header";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 const getHeaderData = (): headerPropsType[] => {
   return [
     {
-      heading: {
-        part1: "Gath",
-        part2: "Session",
-        part3: ".",
-      },
-      menuItems: {
-        item1: "Home",
-        item2: "Features",
-        item3: "Blog",
-        item4: "Contact",
-        item5: "About Us",
-        item6: "Login",
-      },
+      heading: [{ part: "Gath" }, { part: "Session" }, { part: "." }],
+      navLinks: [
+        {
+          title: "Home",
+          path: "/",
+        },
+        {
+          title: "Features",
+          path: "/features",
+        },
+        {
+          title: "Blog",
+          path: "/blog",
+        },
+        {
+          title: "Contact",
+          path: "/contact-us",
+        },
+        {
+          title: "About Us",
+          path: "/about-us",
+        },
+        {
+          title: "Login",
+          path: "/login",
+        },
+      ],
     },
   ];
 };
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Online Forum",
@@ -46,15 +48,13 @@ export default function RootLayout({
   const headerData = getHeaderData();
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>
         {headerData.map((header) => {
           return (
             <Header
-              key={header.heading.part1}
+              key={header.heading[0].part}
               heading={header.heading}
-              menuItems={header.menuItems}
+              navLinks={header.navLinks}
             />
           );
         })}
