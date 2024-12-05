@@ -4,7 +4,7 @@ import "./globals.css";
 const getHeaderData = (): headerPropsType[] => {
   return [
     {
-      heading: [{ part: "Gath" }, { part: "Session" }, { part: "." }],
+      heading: ["Gath", "Session", "."],
       navLinks: [
         {
           title: "Home",
@@ -52,7 +52,7 @@ export default function RootLayout({
         {headerData.map((header) => {
           return (
             <Header
-              key={header.heading[0].part}
+              key={header.heading[0]}
               heading={header.heading}
               navLinks={header.navLinks}
             />

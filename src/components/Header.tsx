@@ -1,17 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 export interface headerPropsType {
-  heading: [
-    {
-      part: string;
-    },
-    {
-      part: string;
-    },
-    {
-      part: string;
-    }
-  ];
+  heading: string[];
   navLinks: [
     {
       title: string;
@@ -47,13 +37,11 @@ const Header = ({ heading, navLinks }: headerPropsType) => {
           {heading.map((headingPart) => (
             <h1
               className={
-                headingPart.part === heading[1].part
-                  ? "text-white"
-                  : "text-[#db2a6b]"
+                headingPart === heading[1] ? "text-white" : "text-[#db2a6b]"
               }
-              key={headingPart.part}
+              key={headingPart[0]}
             >
-              {headingPart.part}
+              {headingPart}
             </h1>
           ))}
         </div>
