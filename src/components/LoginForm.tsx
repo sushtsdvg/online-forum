@@ -55,12 +55,13 @@ const LoginForm = () => {
     {}
   );
   const validationYupValues: IValidationYupValues = { ...initialValues };
-  const validationSchema = yup.object().shape({ ...validationYupValues });
   formData.forEach((key) => {
     validationYupValues[key.input.name] = lookUpValidations[
       key.input.type as keyof IlookUpValidations
     ] as yupStringSchema;
   });
+  const validationSchema = yup.object().shape({ ...validationYupValues });
+
   return (
     <div>
       <FormWrapper
